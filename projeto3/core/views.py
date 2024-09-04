@@ -22,8 +22,9 @@ class IndexView(FormView):
 
         return context
     
-    def get_feature_half_index(self):
-        total_features = Feature.objects.count()
+    def get_feature_half_index(self, total_features=None):
+        if total_features is None:
+            total_features = Feature.objects.count()
         features_half_i = total_features // 2 #calcula a metade do total das features para definir left e right da formataçao
 
         return features_half_i
